@@ -1,0 +1,13 @@
+{% extends 'components/itilobject/timeline/form_timeline_item.html.twig' %}
+
+{% block timeline_card %}
+    {% if form_mode == 'view' %}
+        {{ entry_i['content']|raw }}
+    {% else %}
+        <div class="d-flex align-items-center gap-2 mb-2 px-2 pt-1">
+            <i class="ti ti-list-check"></i>
+            <strong>{{ __('Plugin Tarefas', 'tarefas') }}</strong>
+        </div>
+        {{ call('PluginTarefasTimeline::renderCreateForm', [item.fields['id']])|raw }}
+    {% endif %}
+{% endblock %}
